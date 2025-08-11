@@ -11,7 +11,7 @@ const BlogList = () => {
         {blogCategories.map((item, index) => (
           <div key={index} className="relative">
             <button
-              className={`cursor-pointer px-4 pt-1 ${menu === item && "text-white"}`}
+              className={`cursor-pointer pt-2 sm:pt-1 ${menu === item && "px-4 text-white"}`}
               onClick={() => setMenu(item)}
             >
               {item}
