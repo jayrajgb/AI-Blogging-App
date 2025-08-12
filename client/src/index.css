@@ -12,6 +12,9 @@
 @theme {
   --color-primary: #5a189a;
   --color-mytext: #10002b;
+  --color-secondary: #e0aaff;
+  --color-myred: #f72634;
+  --color-mygreen: #31cb00;
 }
 
 .rich-text {

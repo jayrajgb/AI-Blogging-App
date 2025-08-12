@@ -10,7 +10,7 @@ const Login = () => {
 
   return (
     <div className="flex h-screen items-center justify-center">
-      <div className="border-primary/30 shadow-primary/15 w-full max-w-sm rounded-lg border p-6 shadow-xl max-md:m-6">
+      <div className="border-secondary/50 shadow-primary/15 w-full max-w-sm rounded-lg border p-6 shadow-xl max-md:m-6">
         <div className="flex flex-col items-center justify-center">
           <div className="w-full py-6 text-center">
             <h1 className="text-3xl font-bold">

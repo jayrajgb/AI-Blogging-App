@@ -14,7 +14,7 @@ const Sidebar = () => {
         end={true}
         to={"/admin"}
         className={(option) =>
-          `flex cursor-pointer items-center gap-3 px-3 py-4 md:min-w-64 md:px-9 ${option.isActive && "bg-primary/10 border-primary border-r-4"}`
+          `flex cursor-pointer items-center gap-3 px-3 py-4 md:min-w-64 md:px-9 ${option.isActive && "bg-secondary/20 border-primary border-r-4"}`
         }
       >
         <LucideHome size={18} />
@@ -23,7 +23,7 @@ const Sidebar = () => {
       <NavLink
         to={"/admin/addBlog"}
         className={(option) =>
-          `flex cursor-pointer items-center gap-3 px-3 py-4 md:min-w-64 md:px-9 ${option.isActive && "bg-primary/10 border-primary border-r-4"}`
+          `flex cursor-pointer items-center gap-3 px-3 py-4 md:min-w-64 md:px-9 ${option.isActive && "bg-secondary/20 border-primary border-r-4"}`
         }
       >
         <PlusSquare size={18} />
@@ -32,16 +32,16 @@ const Sidebar = () => {
       <NavLink
         to={"/admin/allBlog"}
         className={(option) =>
-          `flex cursor-pointer items-center gap-3 px-3 py-4 md:min-w-64 md:px-9 ${option.isActive && "bg-primary/10 border-primary border-r-4"}`
+          `flex cursor-pointer items-center gap-3 px-3 py-4 md:min-w-64 md:px-9 ${option.isActive && "bg-secondary/20 border-primary border-r-4"}`
         }
       >
         <FilesIcon size={18} />
-        <p className="hidden md:inline-block">Add Blogs</p>
+        <p className="hidden md:inline-block">All Blogs</p>
       </NavLink>
       <NavLink
         to={"/admin/comments"}
         className={(option) =>
-          `flex cursor-pointer items-center gap-3 px-3 py-4 md:min-w-64 md:px-9 ${option.isActive && "bg-primary/10 border-primary border-r-4"}`
+          `flex cursor-pointer items-center gap-3 px-3 py-4 md:min-w-64 md:px-9 ${option.isActive && "bg-secondary/20 border-primary border-r-4"}`
         }
       >
         <MessageSquareQuote size={18} />

@@ -7,7 +7,7 @@ const Header = () => {
     <div className="relative mx-8 sm:mx-16 xl:mx-24">
       <div className="mt-20 mb-8 text-center">
         {/* AI Feature Button */}
-        <div className="border-primary/40 bg-primary/10 text-primary mb-4 inline-flex items-center justify-center gap-4 rounded-full border px-6 py-2 text-sm">
+        <div className="border-primary/40 bg-secondary/20 text-primary mb-4 inline-flex items-center justify-center gap-4 rounded-full border px-6 py-2 text-sm">
           <p>AI Features Integrated</p>
           <Sparkles size={12} />
         </div>

@@ -50,7 +50,7 @@ const Blog = () => {
               {data.title}
             </h1>
             <h2 className="mx-auto my-5 max-w-lg truncate">{data.subtitle}</h2>
-            <p className="border-primary/30 bg-primary/5 text-primary mb-6 inline-block rounded-full border px-4 py-1 text-sm font-medium">
+            <p className="border-secondary/50 bg-primary/5 text-primary mb-6 inline-block rounded-full border px-4 py-1 text-sm font-medium">
               Michael Brown
             </p>
           </div>
