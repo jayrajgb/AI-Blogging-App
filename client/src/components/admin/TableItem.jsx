@@ -22,7 +22,7 @@ const TableItem = (props) => {
             {props.blog.isPublished ? "Unpublish" : "Publish"}
           </button>
           <X
-            size={20}
+            size={16}
             className="text-myred cursor-pointer transition-all hover:scale-105"
           />
         </div>
