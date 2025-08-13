@@ -5,7 +5,7 @@ const TableItem = (props) => {
   const { title, createdAt } = props.blog;
   const BlodDate = new Date(createdAt);
   return (
-    <tr className="border-mytext/50 border-y">
+    <tr className="border-mytext/20 border-y">
       <th className="px-2 py-4">{props.index}</th>
       <td className="px-2 py-4">{title}</td>
       <td className="px-2 py-4 max-sm:hidden">{BlodDate.toDateString()}</td>

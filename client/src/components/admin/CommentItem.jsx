@@ -6,7 +6,7 @@ const CommentItem = (props) => {
   const BlogDate = new Date(createdAt);
 
   return (
-    <tr className="order-y border-mytext/20">
+    <tr className="border-mytext/20 border-y">
       <td className="px-6 py-4">
         <b className="text-mytext/60 font-medium">Blog</b> :{" "}
         <span className="text-mytext/50">{blog.title}</span>
