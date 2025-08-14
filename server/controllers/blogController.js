@@ -42,9 +42,53 @@ export const addBlog = async (req, res) => {
       isPublished,
     });
 
-    res.json({ succes: true, message: "Blog added successfully!" });
+    res.json({ success: true, message: "Blog added successfully!" });
   } catch (error) {
-    res.json({ succes: false, message: error.message });
+    res.json({ success: false, message: error.message });
     console.log(error.message);
+  }
+};
+
+export const getAllBlogs = async (req, res) => {
+  try {
+    const blogs = await blogModel.find({ isPublished: true });
+    res.json({ success: true, blogs });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export const getBlogById = async (req, res) => {
+  try {
+    const { blogId } = req.parse;
+    const blog = await blogModel.findById(blogId);
+    if (!blog) {
+      return res.json({ succes: false, message: "Blog not found!" });
+    }
+    res.json({ success: true, blog });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export const deleteBlogById = async (req, res) => {
+  try {
+    const { id } = req.body;
+    await blogModel.findByIdAndDelete(id);
+    res.json({ success: true, message: "Blog deleted successfully!" });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export const togglePublished = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const blog = blogModel.findById(id);
+    blog.isPublished = !blog.isPublished;
+    await blog.save();
+    res.json({ success: true, message: "Blog status updated!" });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
   }
 };
