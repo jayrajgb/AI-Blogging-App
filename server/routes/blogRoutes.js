@@ -4,6 +4,7 @@ import {
   deleteBlogById,
   getAllBlogs,
   getBlogById,
+  getBlogComments,
   togglePublished,
 } from "../controllers/blogController.js";
 import upload from "../middlewares/multer.js";
@@ -20,5 +21,9 @@ blogRouter.get("/:blogId", getBlogById);
 blogRouter.post("/delete", auth, deleteBlogById);
 
 blogRouter.post("/toggle-publish", auth, togglePublished);
+
+blogRouter.post("/add-comment", addComment);
+
+blogRouter.post("/comments", getBlogComments);
 
 export default blogRouter;
