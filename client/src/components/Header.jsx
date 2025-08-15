@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Sparkles } from "lucide-react";
 import { assets } from "../assets/assets";
+import { useAppContext } from "../context/appContext";
 
 const Header = () => {
+  const { setInput, input } = useAppContext();
+
+  const inputRef = useRef();
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    setInput(inputRef.current.value);
+  };
+
+  const onClear = async (e) => {
+    setInput("");
+    inputRef.current.value = "";
+  };
+
   return (
     <div className="relative mx-8 sm:mx-16 xl:mx-24">
       <div className="mt-20 mb-8 text-center">
@@ -27,14 +42,13 @@ const Header = () => {
 
         {/* Form */}
         <form
-          action=""
           className="border-mytext/10 mx-auto flex max-w-lg justify-between overflow-hidden rounded border bg-white max-sm:scale-75"
+          onSubmit={onSubmitHandler}
         >
           <input
             type="text"
             placeholder="Search blogs"
-            name=""
-            id=""
+            ref={inputRef}
             required
             className="w-full pl-4 outline-none"
           />
@@ -45,6 +59,16 @@ const Header = () => {
             Search
           </button>
         </form>
+      </div>
+      <div className="text-center">
+        {input && (
+          <button
+            className="shadow-custom-sm cursor-pointer rounded-sm border px-3 py-1 text-xs font-light"
+            onClick={onClear}
+          >
+            Clear Search
+          </button>
+        )}
       </div>
       <img
         src={assets.gradientBackground}

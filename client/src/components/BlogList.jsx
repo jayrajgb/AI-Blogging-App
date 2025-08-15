@@ -2,9 +2,24 @@ import React, { useState } from "react";
 import { blog_data, blogCategories } from "../assets/assets";
 import { motion } from "motion/react";
 import BlogCard from "./BlogCard";
+import { useAppContext } from "../context/appContext";
 
 const BlogList = () => {
   const [menu, setMenu] = useState("All");
+
+  const { blogs, input } = useAppContext();
+
+  const filteredBlogs = () => {
+    if (input === "") {
+      return blogs;
+    }
+    return blogs.filter(
+      (blogItem) =>
+        blogItem.title.toLowerCase().includes(input.toLowerCase()) ||
+        blogItem.category.toLowerCase().includes(input.toLowerCase()),
+    );
+  };
+
   return (
     <div>
       <div className="text-mytext relative my-12 flex justify-center gap-4 max-sm:text-xs sm:gap-8">
@@ -27,7 +42,7 @@ const BlogList = () => {
         ))}
       </div>
       <div className="mx-8 mb-24 grid grid-cols-1 gap-8 sm:mx-16 sm:grid-cols-2 md:grid-cols-3 xl:mx-40 xl:grid-cols-4">
-        {blog_data
+        {filteredBlogs()
           .filter((blog) => (menu === "All" ? true : blog.category === menu))
           .map((blog) => (
             <BlogCard key={blog._id} blog={blog} />

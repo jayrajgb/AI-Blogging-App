@@ -1,6 +1,7 @@
 import express from "express";
 import {
   addBlog,
+  addComment,
   deleteBlogById,
   getAllBlogs,
   getBlogById,

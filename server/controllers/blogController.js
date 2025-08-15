@@ -61,7 +61,7 @@ export const getAllBlogs = async (req, res) => {
 
 export const getBlogById = async (req, res) => {
   try {
-    const { blogId } = req.parse;
+    const { blogId } = req.params;
     const blog = await blogModel.findById(blogId);
     if (!blog) {
       return res.json({ succes: false, message: "Blog not found!" });
@@ -94,7 +94,7 @@ export const togglePublished = async (req, res) => {
   }
 };
 
-export const addComment = async () => {
+export const addComment = async (req, res) => {
   try {
     const { blog, name, content } = req.body;
     await commentModel.create({ blog, name, content });
