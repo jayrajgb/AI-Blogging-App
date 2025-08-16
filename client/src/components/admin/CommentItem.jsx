@@ -1,9 +1,53 @@
 import { CheckCircleIcon, Trash2 } from "lucide-react";
 import React from "react";
+import { useAppContext } from "../../context/appContext";
+import toast from "react-hot-toast";
 
 const CommentItem = (props) => {
   const { blog, createdAt, _id } = props.comment;
   const BlogDate = new Date(createdAt);
+
+  const { axios } = useAppContext();
+
+  const fetchComments = props.fetchComments;
+
+  const approveComment = async () => {
+    try {
+      const { data } = await axios.post("/api/admin/approve-comment", {
+        id: _id,
+      });
+      if (data.success) {
+        toast.success(data.message);
+        fetchComments();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  const deleteComment = async () => {
+    try {
+      const confirm = window.confirm(
+        "Are you sure you want to delete this comment?",
+      );
+      if (!confirm) {
+        return;
+      }
+      const { data } = await axios.post("/api/admin/delete-comment", {
+        id: _id,
+      });
+      if (data.success) {
+        toast.success(data.message);
+        fetchComments();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   return (
     <tr className="border-mytext/20 border-y">
@@ -28,10 +72,12 @@ const CommentItem = (props) => {
               <CheckCircleIcon
                 size={16}
                 className="text-mygreen cursor-pointer transition-all hover:scale-105"
+                onClick={approveComment}
               />
               <Trash2
                 size={16}
                 className="text-myred cursor-pointer transition-all hover:scale-105"
+                onClick={deleteComment}
               />
             </>
           ) : (
@@ -42,6 +88,7 @@ const CommentItem = (props) => {
               <Trash2
                 size={16}
                 className="text-myred cursor-pointer transition-all hover:scale-105"
+                onClick={deleteComment}
               />
             </>
           )}

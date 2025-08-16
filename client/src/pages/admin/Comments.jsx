@@ -2,13 +2,27 @@ import React, { useEffect, useState } from "react";
 import { comments_data } from "../../assets/assets";
 import CommentItem from "../../components/admin/CommentItem";
 import { MessagesSquare } from "lucide-react";
+import { useAppContext } from "../../context/appContext";
+import toast from "react-hot-toast";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
   const [filter, setFilter] = useState("Approved");
 
+  const { axios } = useAppContext();
+
   const fetchComments = async () => {
-    setComments(comments_data);
+    // setComments(comments_data);
+    try {
+      const { data } = await axios.get("/api/admin/comments");
+      if (data.success) {
+        setComments(data.comments);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {

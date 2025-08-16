@@ -10,6 +10,8 @@ import {
   SquarePen,
 } from "lucide-react";
 import TableItem from "../../components/admin/TableItem";
+import { useAppContext } from "../../context/appContext";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState({
@@ -19,8 +21,20 @@ const Dashboard = () => {
     recentBlogs: [],
   });
 
+  const { axios } = useAppContext();
+
   const fetchDashboard = async () => {
-    setDashboardData(dashboard_data);
+    // setDashboardData(dashboard_data);
+    try {
+      const { data } = await axios.get("/api/admin/dashboard");
+      if (data.success) {
+        setDashboardData(data.dashboardData);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {

@@ -9,7 +9,9 @@ const BlogCard = (props) => {
       className="hover:shadow-secondary/20 w-full overflow-hidden rounded-lg shadow duration-300 hover:scale-105"
       onClick={() => navigate(`/blog/${_id}`)}
     >
-      <img src={image} alt="img" className="aspect-video" />
+      <div className="h-36 w-full sm:h-44">
+        <img src={image} alt="img" className="size-full object-contain" />
+      </div>
       <span className="bg-secondary/20 text-primary mt-4 ml-5 inline-block rounded-full px-3 py-1 text-xs">
         {category}
       </span>

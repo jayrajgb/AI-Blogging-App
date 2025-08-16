@@ -1,8 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { assets, blogCategories } from "../../assets/assets";
 import Quill from "quill";
+import { useAppContext } from "../../context/appContext";
+import toast from "react-hot-toast";
 
 const AddBlog = () => {
+  const { axios } = useAppContext();
+
+  const [isAdding, setIsAdding] = useState(false);
+
   const [img, setImg] = useState(false);
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
@@ -14,6 +20,37 @@ const AddBlog = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+
+    try {
+      setIsAdding(true);
+      const blog = {
+        title,
+        subtitle,
+        description: quillRef.current.root.innerHTML,
+        category,
+        isPublished,
+      };
+
+      const formData = new FormData();
+      formData.append("blog", JSON.stringify(blog));
+      formData.append("image", img);
+
+      const { data } = await axios.post("/api/blog/add", formData);
+
+      if (data.success) {
+        toast.success(data.message);
+        setImg(false);
+        setTitle("");
+        quillRef.current.root.innerHTML = "";
+        setCategory("Startup");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setIsAdding(false);
+    }
   };
 
   const generateContent = async () => {};
@@ -97,8 +134,9 @@ const AddBlog = () => {
         <button
           className="bg-primary mt-8 h-10 w-40 cursor-pointer rounded text-sm text-white"
           type="submit"
+          disabled={isAdding}
         >
-          Add Blog
+          {isAdding ? "Adding..." : "Add Blog"}
         </button>
       </div>
     </form>
