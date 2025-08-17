@@ -9,7 +9,7 @@ const Comments = () => {
   const [comments, setComments] = useState([]);
   const [filter, setFilter] = useState("Approved");
 
-  console.log(comments);
+  // console.log(comments);
 
   const { axios } = useAppContext();
 
