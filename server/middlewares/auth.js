@@ -6,8 +6,12 @@ const auth = (req, res, next) => {
     jwt.verify(token, process.env.JWT_SECRET);
     next();
   } catch (error) {
-    res.json({ success: false, message: "Invalid token!" });
-    console.log(error.message);
+    res.json({
+      success: false,
+      message: "Invalid token!",
+      error: error.message,
+    });
+    // console.log(error.message);
   }
 };
 

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const CommentItem = (props) => {
   const { blog, createdAt, _id } = props.comment;
-  console.log(blog);
+  // console.log(blog);
   const BlogDate = new Date(createdAt);
 
   const { axios } = useAppContext();

@@ -20,7 +20,7 @@ export const adminLogin = async (req, res) => {
     res.json({ success: true, token });
   } catch (error) {
     res.json({ success: false, message: error.message });
-    console.log(error.message);
+    // console.log(error.message);
   }
 };
 
@@ -39,7 +39,7 @@ export const getAllComments = async (req, res) => {
       .find({})
       .populate("blog")
       .sort({ createdAt: -1 });
-    console.log(comments);
+    // console.log(comments);
     res.json({ success: true, comments });
   } catch (error) {
     res.json({ success: false, message: error.message });
