@@ -16,15 +16,15 @@ const Layout = () => {
 
   return (
     <>
-      <div className="border-mytext/20 flex h-[70px] items-center justify-between border-b px-4 py-2 sm:px-12">
+      <div className="flex h-12 items-center justify-between p-4 sm:px-12 md:h-20">
         <img
-          src={assets.logo}
+          src="/logo.png"
           alt="logo"
-          className="w-32 cursor-pointer sm:w-40"
+          className="h-8 cursor-pointer md:h-16"
           onClick={() => navigate("/")}
         />
         <button
-          className="bg-primary cursor-pointer rounded-full px-8 py-2 text-sm text-white"
+          className="bg-primary cursor-pointer rounded-full px-6 py-2 text-xs text-white md:px-10 md:py-3 md:text-sm"
           onClick={logout}
         >
           Logout

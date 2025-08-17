@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="bg-secondary/20 px-6 text-sm md:px-16 lg:px-24 xl:px-32">
       <div className="border-mytext/20 text-mytext flex flex-col items-start justify-between gap-10 border-b py-10 md:flex-row">
         <div>
-          <img src={assets.logo} alt="logo" className="w-32 sm:w-44" />
+          <img src="/logo.png" alt="logo" className="h-10 md:h-16" />
           <p className="mt-6 max-w-[410px] text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
             delectus debitis alias earum rerum ratione doloremque voluptas dolor
