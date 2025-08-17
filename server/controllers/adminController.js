@@ -39,6 +39,7 @@ export const getAllComments = async (req, res) => {
       .find({})
       .populate("blog")
       .sort({ createdAt: -1 });
+    console.log(comments);
     res.json({ success: true, comments });
   } catch (error) {
     res.json({ success: false, message: error.message });

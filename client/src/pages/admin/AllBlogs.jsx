@@ -35,7 +35,7 @@ const AllBlogs = () => {
         </span>
         All Blogs
       </h1>
-      <div className="scrollbar-hide relative mt-4 h-4/5 max-w-4xl overflow-x-auto rounded-lg bg-white shadow">
+      <div className="scrollbar-hide relative mt-4 max-h-4/5 max-w-4xl overflow-x-auto rounded-lg bg-white shadow">
         <table className="text-mytext/60 w-full text-sm">
           <thead className="text-mytext/80 text-left text-xs uppercase">
             <tr>

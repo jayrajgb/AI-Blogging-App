@@ -9,12 +9,15 @@ const Comments = () => {
   const [comments, setComments] = useState([]);
   const [filter, setFilter] = useState("Approved");
 
+  console.log(comments);
+
   const { axios } = useAppContext();
 
   const fetchComments = async () => {
     // setComments(comments_data);
     try {
       const { data } = await axios.get("/api/admin/comments");
+      // console.log(data);
       if (data.success) {
         setComments(data.comments);
       } else {

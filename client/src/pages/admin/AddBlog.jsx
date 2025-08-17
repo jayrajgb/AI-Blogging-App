@@ -146,7 +146,11 @@ const AddBlog = () => {
         >
           <option value="">Select Category</option>
           {blogCategories.map((category, index) => {
-            return <option value={category}>{category}</option>;
+            return (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            );
           })}
         </select>
         <div className="mt-4 flex gap-2">

@@ -4,7 +4,8 @@ import { useAppContext } from "../../context/appContext";
 import toast from "react-hot-toast";
 
 const TableItem = (props) => {
-  const { title, createdAt } = props.blog;
+  const blog = props.blog;
+  const { title, createdAt } = blog;
   const BlogDate = new Date(createdAt);
 
   const { axios } = useAppContext();
@@ -54,22 +55,26 @@ const TableItem = (props) => {
         <p
           className={`${props.blog.isPublished ? "text-mygreen" : "text-myred"}`}
         >
-          {props.blog.isPublished ? "Published" : "Unpublished"}
+          {blog.isPublished ? "Published" : "Unpublished"}
         </p>
       </td>
       <td className="px-2 py-4 text-xs">
-        <div className="flex items-center gap-x-3">
+        <div className="flex items-center justify-between gap-x-3">
           <button
-            className="mt-1 cursor-pointer rounded border p-2"
+            className="mt-1 w-20 cursor-pointer rounded border p-2"
             onClick={togglePublished}
           >
-            {props.blog.isPublished ? "Unpublish" : "Publish"}
+            {blog.isPublished ? "Unpublish" : "Publish"}
           </button>
-          <X
-            size={16}
-            className="text-myred cursor-pointer transition-all hover:scale-105"
+          <div
             onClick={deleteBlog}
-          />
+            className="bg-myred/10 hover:bg-myred/20 mr-2 rounded-full p-1 md:mr-4 md:p-2 lg:mr-6"
+          >
+            <X
+              size={12}
+              className="text-myred cursor-pointer transition-all hover:scale-105"
+            />
+          </div>
         </div>
       </td>
     </tr>

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 
 const CommentItem = (props) => {
   const { blog, createdAt, _id } = props.comment;
+  console.log(blog);
   const BlogDate = new Date(createdAt);
 
   const { axios } = useAppContext();
@@ -53,7 +54,9 @@ const CommentItem = (props) => {
     <tr className="border-mytext/20 border-y">
       <td className="px-6 py-4">
         <b className="text-mytext/60 font-medium">Blog</b> :{" "}
-        <span className="text-mytext/50">{blog.title}</span>
+        <span className="text-mytext/50">
+          {blog?.title || "{Blog Deleted}"}
+        </span>
         <br />
         <br />
         <b className="text-mytext/60 font-medium">Name</b> :{" "}
