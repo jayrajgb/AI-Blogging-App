@@ -4,6 +4,7 @@ import {
   addComment,
   deleteBlogById,
   generateContent,
+  generateImage,
   getAllBlogs,
   getBlogById,
   getBlogComments,
@@ -29,5 +30,7 @@ blogRouter.post("/add-comment", addComment);
 blogRouter.post("/comments", getBlogComments);
 
 blogRouter.post("/generate", auth, generateContent);
+
+blogRouter.post("/thumbnail", auth, generateImage);
 
 export default blogRouter;
