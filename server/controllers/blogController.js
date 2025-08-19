@@ -137,8 +137,18 @@ export async function generateImage(req, res) {
   try {
     const { prompt } = req.body;
     const content = await generateThumbnail(prompt);
-    res.json({ success: true, content });
+    if (Buffer.isBuffer(content)) {
+      const base64Image = content.toString("base64");
+      res.json({
+        success: true,
+        image: `data:image/png;base64,${base64Image}`, // Ready-to-use data URL
+        // Or just return the base64 string:
+        // imageData: base64Image
+      });
+    } else {
+      res.json({ success: false, message: content });
+    }
   } catch (error) {
-    res.json({ success: true, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 }

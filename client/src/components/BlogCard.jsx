@@ -10,7 +10,7 @@ const BlogCard = (props) => {
       onClick={() => navigate(`/blog/${_id}`)}
     >
       <div className="h-36 w-full sm:h-44">
-        <img src={image} alt="img" className="size-full object-contain" />
+        <img src={image} alt="img" className="size-full object-cover" />
       </div>
       <span className="bg-secondary/20 text-primary mt-4 ml-5 inline-block rounded-full px-3 py-1 text-xs">
         {category}
