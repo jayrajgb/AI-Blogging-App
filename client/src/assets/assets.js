@@ -33,29 +33,8 @@ import dashboard_icon_3 from "./dashboard_icon_3.svg";
 import dashboard_icon_4 from "./dashboard_icon_4.svg";
 
 export const assets = {
-  facebook_icon,
-  googleplus_icon,
-  twitter_icon,
-  logo,
-  arrow,
-  logo_light,
-  blog_icon,
-  add_icon,
-  email_icon,
   upload_area,
-  user_icon,
-  bin_icon,
-  comment_icon,
-  tick_icon,
-  star_icon,
-  home_icon,
   gradientBackground,
-  list_icon,
-  cross_icon,
-  dashboard_icon_1,
-  dashboard_icon_2,
-  dashboard_icon_3,
-  dashboard_icon_4,
 };
 export const blogCategories = [
   "All",
