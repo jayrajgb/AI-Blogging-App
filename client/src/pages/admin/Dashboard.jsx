@@ -3,9 +3,6 @@ import { dashboard_data } from "../../assets/assets";
 import {
   FilesIcon,
   LucideFileStack,
-  Menu,
-  MessageCircle,
-  MessageCircleCode,
   MessagesSquare,
   SquarePen,
 } from "lucide-react";
