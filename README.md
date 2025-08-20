@@ -77,8 +77,26 @@
    ```
 
 3. **Setup backend**
+
    ```bash
    cd server
    npm i
    npm run server
+   ```
+
+4. **Setup environment variables for backend**
+
+   ```bash
+       cd server
+       ni .env
+       code .env
+       # paste & setup following variables
+        # MONGODB_URI=
+        # ADMIN_EMAIL=
+        # ADMIN_PASSWORD=
+        # JWT_SECRET=
+        # IMAGEKIT_PUBLIC_KEY=
+        # IMAGEKIT_PRIVATE_KEY=
+        # IMAGEKIT_URL_ENDPOINT=
+        # GEMINI_API_KEY=
    ```
