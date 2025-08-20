@@ -8,29 +8,8 @@ import blog_pic_7 from "./blog_pic_7.png";
 import blog_pic_8 from "./blog_pic_8.png";
 import blog_pic_9 from "./blog_pic_9.png";
 import blog_pic_10 from "./blog_pic_10.png";
-import facebook_icon from "./facebook_icon.svg";
-import googleplus_icon from "./googleplus_icon.svg";
-import twitter_icon from "./twitter_icon.svg";
-import logo from "./logo.svg";
-import arrow from "./arrow.svg";
-import logo_light from "./logo_light.svg";
-import blog_icon from "./blog_icon.png";
-import add_icon from "./add_icon.svg";
-import list_icon from "./list_icon.svg";
-import email_icon from "./email_icon.png";
 import upload_area from "./upload_area.svg";
-import user_icon from "./user_icon.svg";
-import bin_icon from "./bin_icon.svg";
-import comment_icon from "./comment_icon.svg";
-import tick_icon from "./tick_icon.svg";
-import star_icon from "./star_icon.svg";
-import cross_icon from "./cross_icon.svg";
-import home_icon from "./home_icon.svg";
 import gradientBackground from "./gradientBackground.png";
-import dashboard_icon_1 from "./dashboard_icon_1.svg";
-import dashboard_icon_2 from "./dashboard_icon_2.svg";
-import dashboard_icon_3 from "./dashboard_icon_3.svg";
-import dashboard_icon_4 from "./dashboard_icon_4.svg";
 
 export const assets = {
   upload_area,
