@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const BlogList = () => {
   const [menu, setMenu] = useState("All");
 
-  const { blogs, input } = useAppContext();
+  const { blogs, input, fetchBlogs } = useAppContext();
 
   const filteredBlogs = () => {
     if (input === "") {
@@ -20,6 +20,12 @@ const BlogList = () => {
         blogItem.category.toLowerCase().includes(input.toLowerCase()),
     );
   };
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      fetchBlogs();
+    }
+  }, [location]);
 
   return (
     <div>
