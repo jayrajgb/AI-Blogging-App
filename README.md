@@ -1,4 +1,4 @@
-#### ✍️ **BloGer - AI Integrated Blogging App** ( MERN + Gemini API )
+#### ✍️ **Blogger - AI Integrated Blogging App** ( Vite • React • CSS • Node • Express • MongoDB • Gemini API • ImageKit )
 
 ---
 
@@ -47,8 +47,6 @@
 | image | String | ✅ | URL of blog cover image |
 | isPublished | Boolean | ✅ | Publish state (true/false)|
 | timestamps | Date | Auto | CreatedAt & UpdatedAt |
-
----
 
 **💬 Comment Model**
 | Field | Type | Required | Description |
